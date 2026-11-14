@@ -71,7 +71,11 @@ def launch_app():
     """Launches the Streamlit clinical decision support dashboard."""
     app_file = os.path.join(PROJECT_ROOT, "app", "app.py")
     print(f"\n>>> Starting Streamlit Web App at {app_file}...")
-    subprocess.run([sys.executable, "-m", "streamlit", "run", app_file])
+    py_bin = sys.executable
+    py311 = r"C:\Program Files\Python311\python.exe"
+    if os.path.exists(py311):
+        py_bin = py311
+    subprocess.run([py_bin, "-m", "streamlit", "run", app_file])
 
 
 if __name__ == "__main__":
